@@ -1,0 +1,53 @@
+# ---------------------------------------------------------
+# KiCad 8/9 clean diff handling
+# ---------------------------------------------------------
+
+# Treat KiCad schematic/PCB files as binary to avoid
+# unreadable “diff noise” in pull requests or commits.
+*.kicad_sch   binary
+*.kicad_pcb   binary
+*.kicad_sym   binary
+*.kicad_mod   binary
+*.kicad_wks   binary
+*.kicad_prl   binary
+
+# Backup/restore files should not show diffs
+*.kicad_sch-bak   binary
+*.kicad_pcb-bak   binary
+*.kicad_sch-bkp   binary
+*.kicad_pcb-bkp   binary
+*.restore         binary
+
+# 3D models
+*.step     binary
+*.stp      binary
+*.wrl      binary
+*.3dshapes binary
+
+# KiCad netlists, footprints, caches
+*.net      binary
+*.xml      binary
+*.cache    binary
+
+# ---------------------------------------------------------
+# Ignore auto-generated Windows CRLF issues
+# ---------------------------------------------------------
+* text=auto
+
+# Ensure Markdown files stay clean
+*.md text eol=lf
+
+# C/C++ firmware code
+*.c   text eol=lf
+*.h   text eol=lf
+*.cpp text eol=lf
+
+# STM32CubeIDE metadata
+*.project   text eol=lf
+*.cproject  text eol=lf
+
+# GitHub wants to show diffs for these normally:
+*.yaml  text
+*.yml   text
+*.json  text
+*.txt   text

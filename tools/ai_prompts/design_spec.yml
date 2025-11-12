@@ -1,0 +1,63 @@
+project:
+  name: OpenBLDC-Mini
+  version: v1.0
+  license: CERN-OHL-S-2.0
+  description: >
+    Open-source 24–48 V, ~2 kW BLDC/PMSM motor controller with STM32G431 MCU and DRV8353RS gate driver.
+    Focus on FOC control, safety, clear documentation, and AI-assisted engineering.
+
+electrical_spec:
+  dc_bus_voltage:
+    min_v: 24
+    max_v: 48
+    abs_max_v: 55
+  continuous_current_a: 40
+  peak_current_a: 60
+  protections:
+    - ovp
+    - uvp
+    - ocp
+    - otp
+
+power_stage:
+  mosfets:
+    vds_v: 80
+    rds_on_milliohm: 5
+    package: [TO-220, LFPAK56]
+    count: 6
+  gate_driver:
+    part: DRV8353RS
+    current_sense: shunt_inline
+    bootstrap: true
+  shunt_sense:
+    shunt_milliohm: 1.0
+    amplifier_gain: 20
+  input_protection:
+    reverse_polarity: ideal_diode_or_mosfet_or
+    fuse: recommended
+    tvs: 58v_smbj_or_smc
+
+control:
+  mcu: STM32G431
+  toolchain: STM32CubeIDE
+  control_loops:
+    - foc_current
+    - speed
+  comms:
+    - uart
+    - can
+
+mechanical:
+  board_size_mm: [70, 70]
+  layers: 2
+  cooling: heatsink_baseplate_optional
+
+repo:
+  structure:
+    - hardware/
+    - firmware/
+    - docs/
+    - tools/ai_prompts/
+  ci_plans:
+    - kicad_export_pdfs_later
+    - firmware_build_checks_later

@@ -1,0 +1,46 @@
+# ──────────── KiCad 8/9 core files ────────────
+*.bak
+*.bck
+*.kicad_prl
+*.kicad_sch-bak
+*.kicad_pcb-bak
+*.dcm
+*.net
+*.xml
+*.cache
+*-bak
+sym-lib-table-bak
+
+# New KiCad 9 caches / generated content
+*.kicad_sch-bkp
+*.kicad_pcb-bkp
+*.kicad_sch-backup
+*.kicad_pcb-backup
+*.kicad_*.zip
+*.tmp
+*.lck
+*.restore
+
+# Generated outputs / exports
+**/fabrication/
+**/outputs/
+**/exports/
+**/plots/
+*.step
+*.stp
+*.3dshapes/
+*.3d/
+*.wrl
+
+# ──────────── STM32CubeIDE build artifacts ────────────
+**/Debug/
+**/Release/
+*.launch
+*.settings/
+*.project
+*.cproject
+
+# ──────────── OS & editor junk ────────────
+.DS_Store
+Thumbs.db
+*.log
